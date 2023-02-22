@@ -4,8 +4,7 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="Baton" type="PathFollow2D"]
-offset = 255762.0
+[node name="Baton" type="PathFollow2D" groups=["baton_root"]]
 script = ExtResource( 1 )
 mac = ""
 

@@ -1,4 +1,3 @@
-tool
 extends Node2D
 
 export(int) var port
@@ -22,12 +21,17 @@ func _draw() -> void:
 	draw_circle(Vector2(0,0),20.0,Color(0.0,0.0,0.0,0.2))
 
 func add_detection(baton):
+	var timestamp := float(OS.get_system_time_msecs()) / 1000
+	var rssi := -60
 	detections.append({
 		"id": last_id, "mac": baton.mac,
-		"rssi": -60, "uptime_ms": 0, "battery": 0.0, 
-		"detection_timestamp": float(OS.get_system_time_msecs()) / 1000
+		"rssi": rssi, "uptime_ms": 0, "battery": 0.0, 
+		"detection_timestamp": timestamp
 	})
 	last_id += 1
+	
+	$DetectionGraph.add_point(timestamp, rssi*-1)
+	baton.emit_signal("detection_registered", self, rssi, timestamp)
 
 func _process(delta):
 	update()

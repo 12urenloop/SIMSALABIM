@@ -1,6 +1,9 @@
 tool
 extends PathFollow2D
 
+signal laps_changed(new_laps)
+signal detection_registered(station, rssi, timestamp)
+
 # handjes
 # bewegingslijnen
 # voetstappen
@@ -53,6 +56,7 @@ func _process(delta):
 			if area.is_in_group("station"):
 				var station = area.get_parent()
 				station.add_detection(self)
+
 	
 	update()
 	var previous_offset = offset
@@ -62,6 +66,7 @@ func _process(delta):
 	offset += ((speed + speed_offset) * temp_slow)
 	if offset < previous_offset:
 		laps += 1
+		emit_signal("laps_changed", laps)
 		
 		speed_offset += rng.randf_range(-.05, .05)
 		speed_offset = clamp(speed_offset, -.2, .2)

@@ -3,7 +3,7 @@ extends Node2D
 
 # 1024, 600
 
-var center = Vector2(500,300)
+var center = Vector2(500,560)
 var width = 40
 var height = 20
 
