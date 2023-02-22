@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Station.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Main.gd" type="Script" id=2]
+[ext_resource path="res://Baton.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 825, 316, 0, 0, 0, 0, 812, 239, 0, 0, 0, 0, 704, 144, 0, 0, 0, 0, 568, 99, 0, 0, 0, 0, 395, 107, 0, 0, 0, 0, 273, 156, 0, 0, 0, 0, 194, 239, 0, 0, 0, 0, 176, 298, 0, 0, 0, 0, 190, 374, 0, 0, 0, 0, 251, 437, 0, 0, 0, 0, 365, 493, 0, 0, 0, 0, 484, 512, 0, 0, 0, 0, 599, 507, 0, 0, 0, 0, 708, 469, 0, 0, 0, 0, 779, 424, 0, 0, 0, 0, 810, 377, 0, 0, 0, 0, 825, 316 )
+}
+
+[node name="Root" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Station" parent="." instance=ExtResource( 1 )]
+position = Vector2( 761, 130 )
+port = 6000
+
+[node name="Station2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 441, 53 )
+port = 6001
+
+[node name="Station3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 198, 147 )
+port = 6002
+
+[node name="Station4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 167, 408 )
+port = 6003
+
+[node name="Station5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 347, 518 )
+port = 6004
+
+[node name="Station6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 614, 528 )
+port = 6005
+
+[node name="Station7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 820, 405 )
+port = 6006
+
+[node name="RunPath" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="Baton" parent="RunPath" instance=ExtResource( 3 )]
+position = Vector2( 755.237, 189.069 )
+rotation = -2.42014
+scale = Vector2( 0.980344, 1.05591 )
+offset = 153.465
+mac = "00:00:00:00:00:00"
+
+[node name="Baton2" parent="RunPath" instance=ExtResource( 3 )]
+position = Vector2( 744.875, 179.955 )
+rotation = -2.42015
+scale = Vector2( 0.980344, 1.05591 )
+offset = 167.261
+mac = "00:00:00:00:00:01"
+
+[node name="Baton3" parent="RunPath" instance=ExtResource( 3 )]
+position = Vector2( 733.613, 170.048 )
+rotation = -2.42015
+scale = Vector2( 0.980344, 1.05591 )
+offset = 182.26
+mac = "00:00:00:00:00:02"
+
+[node name="Baton4" parent="RunPath" instance=ExtResource( 3 )]
+position = Vector2( 766.183, 198.698 )
+rotation = -2.42012
+scale = Vector2( 0.980344, 1.05591 )
+offset = 138.846
+mac = "00:00:00:00:00:03"
+
+[node name="Baton5" parent="RunPath" instance=ExtResource( 3 )]
+position = Vector2( 738.411, 174.269 )
+rotation = -2.42017
+scale = Vector2( 0.980344, 1.05591 )
+offset = 175.861
+mac = "00:00:00:00:00:04"
