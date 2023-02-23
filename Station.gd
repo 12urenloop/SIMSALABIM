@@ -20,18 +20,27 @@ func _draw() -> void:
 	# draw_set_transform(Vector2(18,64),0,Vector2(2,3))
 	draw_circle(Vector2(0,0),20.0,Color(0.0,0.0,0.0,0.2))
 
-func add_detection(baton):
+func add_detection(baton: PathFollow2D):
 	var timestamp := float(OS.get_system_time_msecs()) / 1000
 	var rssi := -60
+	var distance := self.global_position.distance_to(baton.global_position)
+	var max_dist: float = $Area2D/CollisionShape2D.get_shape().radius
+	var dist_perc = distance/max_dist
+	var min_rssi = -100
+	var max_rssi = -50
+	var rssi_value_width = min_rssi - max_rssi
+	
+	var new_rssi = (dist_perc * rssi_value_width) + max_rssi
+	
 	detections.append({
 		"id": last_id, "mac": baton.mac,
-		"rssi": rssi, "uptime_ms": 0, "battery": 0.0, 
+		"rssi": new_rssi, "uptime_ms": 0, "battery": 0.0, 
 		"detection_timestamp": timestamp
 	})
 	last_id += 1
 	
-	$DetectionGraph.add_point(timestamp, rssi*-1)
-	baton.emit_signal("detection_registered", self, rssi, timestamp)
+	# $DetectionGraph.add_point(timestamp, new_rssi*-1)
+	baton.emit_signal("detection_registered", self, new_rssi, timestamp)
 
 func _process(delta):
 	update()

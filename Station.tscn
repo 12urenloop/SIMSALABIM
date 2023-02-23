@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 258.07
 
-[node name="Station" type="Node2D"]
+[node name="Station" type="Node2D" groups=["station_root"]]
 z_index = 10
 script = ExtResource( 1 )
 
