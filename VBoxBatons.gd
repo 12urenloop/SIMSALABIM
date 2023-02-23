@@ -17,4 +17,4 @@ func _ready() -> void:
 
 func _on_station_filter_changed(enabled_stations):
 	for child in $HBoxBatonList.get_children():
-		child.get_node("ScrollBatonLogs").get_node("GridContainer").enabled_stations = enabled_stations
+		child.get_node("ScrollBatonLogs").get_node("MarginContainer").get_node("GridContainer").enabled_stations = enabled_stations

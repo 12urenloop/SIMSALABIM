@@ -1,4 +1,3 @@
-tool
 extends PathFollow2D
 
 signal laps_changed(new_laps)
@@ -32,6 +31,8 @@ func get_progress():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$UI/Name.text = name
+	
 	rng.randomize()
 	offset = 0
 	stop_chance = rng.randf_range(0.0, 1.0)
@@ -41,7 +42,6 @@ func _ready() -> void:
 	color = Color(rng.randf_range(.4, .8), rng.randf_range(.4, .8), rng.randf_range(.4, .8), 0.8)
 
 	# mac = ("00-B0-D0-63-C2-%s%s" % [rng.randi_range(0, 10), rng.randi_range(0, 10)])
-	$Mac.text = mac
 
 func _draw():
 	draw_circle(Vector2(0,0),20.0,color)
@@ -75,6 +75,5 @@ func _process(delta):
 		temp_slow = .3
 	
 		
-	$Progress.text = str(round(get_progress()*100)/100)
-	$Laps.text = "Laps: " + str(laps)
-	$Speed.text = str(temp_slow * speed)
+	$UI/Progress.text = str(round(get_progress()*100)/100)
+	$UI/Speed.text = str(temp_slow * speed)
