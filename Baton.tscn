@@ -15,21 +15,21 @@ mac = ""
 shape = SubResource( 1 )
 
 [node name="UI" type="VBoxContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
 mouse_filter = 2
 theme = ExtResource( 2 )
 
 [node name="Name" type="Label" parent="UI"]
-margin_right = 40.0
-margin_bottom = 14.0
+offset_right = 40.0
+offset_bottom = 14.0
 
 [node name="Speed" type="Label" parent="UI"]
-margin_top = 14.0
-margin_right = 40.0
-margin_bottom = 28.0
+offset_top = 14.0
+offset_right = 40.0
+offset_bottom = 28.0
 
 [node name="Progress" type="Label" parent="UI"]
-margin_top = 28.0
-margin_right = 40.0
-margin_bottom = 42.0
+offset_top = 28.0
+offset_right = 40.0
+offset_bottom = 42.0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fbsd1hx0wxik"
-path="res://.godot/imported/speed_line.png-843b2d69ae51af20da22da89de81ece9.ctex"
+uid="uid://ddplhh6fxkhld"
+path="res://.godot/imported/icon.svg-655bc7c28f15e7cab48b85d562ef0068.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://speed_line.png"
-dest_files=["res://.godot/imported/speed_line.png-843b2d69ae51af20da22da89de81ece9.ctex"]
+source_file="res://addons/easy_charts/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-655bc7c28f15e7cab48b85d562ef0068.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

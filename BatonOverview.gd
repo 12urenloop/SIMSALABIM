@@ -23,7 +23,7 @@ func _ready() -> void:
 		var label_laps = Label.new()
 		label.text = str(baton.laps)
 		add_child(label_laps)
-		baton.connect("laps_changed", self, "_on_baton_laps_changed", [baton, label_laps])
+		baton.connect("laps_changed", Callable(self, "_on_baton_laps_changed").bind(baton, label_laps))
 
 func _on_baton_laps_changed(laps, baton, label_laps):
 	label_laps.text = str(laps)

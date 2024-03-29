@@ -10,8 +10,8 @@ class Request:
 	var method := ""
 	var request_path := ""
 	var request_query := ""
-	var headers := PoolStringArray()
-	var request_data := PoolByteArray()
+	var headers := PackedStringArray()
+	var request_data := PackedByteArray()
 
 	func _init(stream_peer: StreamPeerTCP) -> void:
 		peer = stream_peer
@@ -46,7 +46,8 @@ class RequestParser:
 
 	func fetch() -> bool:
 		while true:
-			if not request.peer.is_connected_to_host():
+			var req_status = request.peer.get_status()
+			if req_status == StreamPeerTCP.STATUS_NONE || req_status == StreamPeerTCP.STATUS_ERROR:
 				print_debug("Connection lost")
 				return false
 
@@ -64,7 +65,7 @@ class RequestParser:
 					State.FIRST_LINE_READ:
 						state = _append_to_line(b, state, State.FIRST_LINE_EXPECT_NL)
 					State.FIRST_LINE_EXPECT_NL:
-						if b != ord('\n'):
+						if b != '\n'.to_ascii_buffer()[0]:
 							print_debug("Got \\r with no \\n")
 							return false
 						state = _parse_first_line()
@@ -72,7 +73,7 @@ class RequestParser:
 					State.HEADER_READ:
 						state = _append_to_line(b, state, State.HEADER_EXPECT_NL)
 					State.HEADER_EXPECT_NL:
-						if b != ord('\n'):
+						if b != '\n'.to_ascii_buffer()[0]:
 							print_debug("Got \\r with no \\n")
 							return false
 						state = _parse_header()
@@ -136,7 +137,7 @@ class RequestParser:
 			if content_length != 0:
 				print_debug("Content-Length was set again")
 				return State.FAILURE
-			if not header_value.is_valid_integer():
+			if not header_value.is_valid_int():
 				print_debug("Content-Length is invalid")
 				return State.FAILURE
 			content_length = int(header_value)
@@ -155,8 +156,8 @@ class Response:
 	extends Node
 
 	var response_code := 200
-	var headers := PoolStringArray()
-	var body := PoolByteArray()
+	var headers := PackedStringArray()
+	var body := PackedByteArray()
 
 	func respond(peer: StreamPeerTCP) -> void:
 		_put(peer, "HTTP/1.1 %d\r\n" % response_code)
@@ -164,7 +165,7 @@ class Response:
 		for header in headers:
 			_put(peer, "%s\r\n" % header)
 
-		if body.empty():
+		if body.is_empty():
 			_put(peer, "\r\n")
 		else:
 			_put(peer, "Content-Length: %d\r\n\r\n" % body.size())
@@ -173,12 +174,12 @@ class Response:
 
 	func _put(peer: StreamPeerTCP, contents: String) -> void:
 # warning-ignore:return_value_discarded
-		peer.put_data(contents.to_ascii())
+		peer.put_data(contents.to_ascii_buffer())
 
 var _responder_instance: Object = self
 var _responder_function := "_respond"
 var _server_thread := Thread.new()
-var _server := TCP_Server.new()
+var _server := TCPServer.new()
 var _server_shutdown := false
 
 func set_responder(instance: Object, function: String):
@@ -189,13 +190,13 @@ func listen(port: int, bind_address := "*") -> int:
 	stop()
 	var err := _server.listen(port, bind_address)
 	if err == OK:
-		err = _server_thread.start(self, "_listen_thread")
+		err = _server_thread.start(_listen_thread.bind(null))
 	return err
 
 func stop() -> void:
 	if _server.is_listening():
 		_server.stop()
-	if _server_thread.is_active():
+	if _server_thread.is_alive():
 		_server_shutdown = true
 		_server_thread.wait_to_finish()
 
@@ -225,7 +226,7 @@ func _respond(_request: Request) -> Response:
 	return null
 
 func custom_respond(request: Request) -> Response:
-	var body := PoolByteArray()
+	var body := PackedByteArray()
 	#body.append_array(("Method: %s\n" % request.method).to_ascii())
 	#body.append_array(("Path: %s\n" % request.request_path).to_ascii())
 	#body.append_array(("Query: %s\n" % request.request_query).to_ascii())
@@ -235,9 +236,9 @@ func custom_respond(request: Request) -> Response:
 	#body.append_array(request.request_data)
 	if request.request_path.split('/')[1] == "detections":
 		var index = int(request.request_path.split('/')[2])
-		body.append_array(("%s\n" % get_parent().response(index)).to_ascii())
+		body.append_array(("%s\n" % get_parent().response(index)).to_ascii_buffer())
 	else:
-		body.append_array("Nothing to see here".to_ascii())
+		body.append_array("Nothing to see here".to_ascii_buffer())
 
 	var response := Response.new()
 	response.body = body

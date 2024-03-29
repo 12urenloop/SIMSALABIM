@@ -1,6 +1,6 @@
 extends Control
 
-onready var chart: Chart = $VBoxContainer/Chart
+@onready var chart: Chart = $VBoxContainer/Chart
 
 # This Chart will plot 3 different functions
 var fn_detections: Function
@@ -20,10 +20,10 @@ func _ready():
 	var cp: ChartProperties = ChartProperties.new()
 	cp.colors.frame = Color("#161a1d")
 	# cp.colors.frame = Color.transparent
-	cp.colors.background = Color.transparent
+	cp.colors.background = Color.TRANSPARENT
 	cp.colors.grid = Color("#283442")
 	cp.colors.ticks = Color("#283442")
-	cp.colors.text = Color.whitesmoke
+	cp.colors.text = Color.WHITE_SMOKE
 	cp.draw_bounding_box = false
 	# cp.title = "Air Quality Monitoring"
 	# cp.x_label = "Time"
@@ -40,17 +40,17 @@ func _ready():
 	cp.show_title = false
 	
 	# Let's add values to our functions
-	fn_detections = Function.new([float(OS.get_system_time_msecs()) / 1000], [0], "Detections", 
+	fn_detections = Function.new([Time.get_unix_time_from_system()], [0], "Detections", 
 		{
 			color = Color("#ff6384"), 
 			type = Function.Type.SCATTER, 
 			marker = Function.Marker.CIRCLE
 		})
 		# x, y, "Detections" # This will create a function with x and y values taken by the Arrays 
-						  # we have created previously. This function will also be named "Pressure"
-						  # as it contains 'pressure' values.
-						  # If set, the name of a function will be used both in the Legend
-						  # (if enabled thourgh ChartProperties) and on the Tooltip (if enabled).
+		# we have created previously. This function will also be named "Pressure"
+		# as it contains 'pressure' values.
+		# If set, the name of a function will be used both in the Legend
+		# (if enabled thourgh ChartProperties) and on the Tooltip (if enabled).
 	# )
 	# f2 = Function.new(x, y2, "Humidity", { color = Color("#ff6384"), marker = Function.Marker.CROSS })
 	

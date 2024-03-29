@@ -1,4 +1,4 @@
-tool
+@tool
 extends Node2D
 
 # 1024, 600
@@ -30,4 +30,4 @@ func _draw():
 
 
 func _process(delta):
-	update()
+	queue_redraw()
