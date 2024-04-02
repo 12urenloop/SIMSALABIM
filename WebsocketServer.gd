@@ -126,7 +126,6 @@ func poll() -> void:
 
 
 func _connect_pending(p: PendingPeer) -> bool:
-	print(p)
 	if p.ws != null:
 		# Poll websocket client if doing handshake
 		p.ws.poll()

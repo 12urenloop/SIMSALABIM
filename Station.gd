@@ -52,7 +52,7 @@ func add_detection(baton: PathFollow2D):
 	# $DetectionGraph.add_point(timestamp, new_rssi*-1)
 	baton.emit_signal("detection_registered", self, new_rssi, timestamp)
 	if _ws_server.tcp_server.is_listening():
-		_ws_server.send(0, websocket_response(last_id-1))
+		websocket_response(last_id-1, 0)
 
 
 func _on_web_socket_server_client_connected(peer_id):
@@ -68,7 +68,7 @@ func _on_web_socket_server_message_received(peer_id, message):
 	var parsed_message = JSON.parse_string(message)
 	if parsed_message == null:
 		print("Received an invalid websocket message")
-	_ws_server.send(peer_id, websocket_response(parsed_message.lastId))
+	websocket_response(parsed_message.lastId, peer_id)
 	var lastId = parsed_message.lastId
 
 func _process(delta):
@@ -90,11 +90,15 @@ func response(index):
 		"detections": detections.slice(index, detections.size())
 	})
 
-func websocket_response(index):
-	return JSON.stringify([{
-		"station_id": self.name,
-		"detections": detections.slice(index, detections.size())
-	}])
+func websocket_response(index, peer_id: int):
+	if detections.size() - index < 20:
+		var msg = JSON.stringify(detections.slice(index, detections.size()))
+		_ws_server.send(peer_id, msg)
+		return
+	
+	for size in range(index, detections.size()-20, 20):
+		var msg = JSON.stringify(detections.slice(size, size+20))
+		_ws_server.send(peer_id, msg)
 
 func _on_CheckButton_toggled(button_pressed: bool) -> void:
 	enabled = button_pressed
