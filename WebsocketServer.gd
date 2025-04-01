@@ -161,4 +161,3 @@ func _connect_pending(p: PendingPeer) -> bool:
 		if status != StreamPeerTLS.STATUS_HANDSHAKING:
 			return true # Failure.
 		return false
-

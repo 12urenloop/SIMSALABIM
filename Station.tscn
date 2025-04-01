@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://btqbni2utt6i7"]
 
-[ext_resource type="Script" path="res://Station.gd" id="1"]
-[ext_resource type="Script" path="res://Node.gd" id="2"]
+[ext_resource type="Script" uid="uid://cws5uq67oei0h" path="res://Station.gd" id="1"]
+[ext_resource type="Script" uid="uid://c6fvf0skcoixl" path="res://Node.gd" id="2"]
 [ext_resource type="Theme" uid="uid://b20osldq2585f" path="res://Theme.tres" id="4"]
 
 [sub_resource type="CircleShape2D" id="1"]

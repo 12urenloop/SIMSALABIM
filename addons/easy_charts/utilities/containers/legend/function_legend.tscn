@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://b58352pn8gh8h"]
 
-[ext_resource path="res://addons/easy_charts/utilities/containers/legend/function_legend.gd" type="Script" id=1]
+[ext_resource type="Script" uid="uid://daketaialc7ly" path="res://addons/easy_charts/utilities/containers/legend/function_legend.gd" id="1"]
 
 [node name="FunctionLegend" type="VBoxContainer"]
 offset_right = 80.0
 offset_bottom = 26.0
-script = ExtResource( 1 )
+script = ExtResource("1")
