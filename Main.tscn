@@ -1,285 +1,234 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene format=3 uid="uid://c7lwy62cxuhrq"]
 
-[ext_resource path="res://Station.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Main.gd" type="Script" id=2]
-[ext_resource path="res://Baton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://BatonOverview.gd" type="Script" id=4]
-[ext_resource path="res://GridContainer.gd" type="Script" id=5]
-[ext_resource path="res://VBoxBaton.gd" type="Script" id=6]
-[ext_resource path="res://HBoxContainer.gd" type="Script" id=7]
-[ext_resource path="res://VBoxBatons.gd" type="Script" id=8]
-[ext_resource path="res://Theme.tres" type="Theme" id=9]
+[ext_resource type="PackedScene" uid="uid://chlhfelvqei31" path="res://Station.tscn" id="1"]
+[ext_resource type="Script" uid="uid://b53wft4qn1gx0" path="res://Main.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://ds3tfjnboxf0r" path="res://Baton.tscn" id="3"]
+[ext_resource type="Script" uid="uid://bmyed3wnx8g28" path="res://BatonOverview.gd" id="4"]
+[ext_resource type="Script" uid="uid://brsx5ng4t7hqj" path="res://GridContainer.gd" id="5"]
+[ext_resource type="Script" uid="uid://b3u6nxdhbdsfu" path="res://VBoxBaton.gd" id="6"]
+[ext_resource type="Script" uid="uid://bblyj5x5q1k6p" path="res://HBoxContainer.gd" id="7"]
+[ext_resource type="Script" uid="uid://dy83uu1igrylt" path="res://VBoxBatons.gd" id="8"]
+[ext_resource type="Theme" uid="uid://bfa4atubkbud6" path="res://Theme.tres" id="9"]
 
-[sub_resource type="Curve2D" id=1]
+[sub_resource type="Curve2D" id="1"]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 825, 316, 0, 0, 0, 0, 812, 239, 0, 0, 0, 0, 704, 144, 0, 0, 0, 0, 568, 99, 0, 0, 0, 0, 395, 107, 0, 0, 0, 0, 273, 156, 0, 0, 0, 0, 194, 239, 0, 0, 0, 0, 176, 298, 0, 0, 0, 0, 190, 374, 0, 0, 0, 0, 251, 437, 0, 0, 0, 0, 365, 493, 0, 0, 0, 0, 484, 512, 0, 0, 0, 0, 599, 507, 0, 0, 0, 0, 708, 469, 0, 0, 0, 0, 779, 424, 0, 0, 0, 0, 810, 377, 0, 0, 0, 0, 825, 316 )
+"points": PackedVector2Array(0, 0, 0, 0, 825, 316, 0, 0, 0, 0, 812, 239, 0, 0, 0, 0, 704, 144, 0, 0, 0, 0, 568, 99, 0, 0, 0, 0, 395, 107, 0, 0, 0, 0, 273, 156, 0, 0, 0, 0, 194, 239, 0, 0, 0, 0, 176, 298, 0, 0, 0, 0, 190, 374, 0, 0, 0, 0, 251, 437, 0, 0, 0, 0, 365, 493, 0, 0, 0, 0, 484, 512, 0, 0, 0, 0, 599, 507, 0, 0, 0, 0, 708, 469, 0, 0, 0, 0, 779, 424, 0, 0, 0, 0, 810, 377, 0, 0, 0, 0, 825, 316)
 }
+point_count = 17
 
-[sub_resource type="Theme" id=2]
+[sub_resource type="Theme" id="2"]
 
-[node name="Root" type="Node2D"]
-script = ExtResource( 2 )
+[node name="Root" type="Node2D" unique_id=12930985]
+script = ExtResource("2")
 
-[node name="Station" parent="." instance=ExtResource( 1 )]
-position = Vector2( 761, 396 )
+[node name="Station" parent="." unique_id=1898710465 instance=ExtResource("1")]
+position = Vector2(761, 396)
 port = 6000
 
-[node name="Station2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 441, 319 )
+[node name="Station2" parent="." unique_id=631789354 instance=ExtResource("1")]
+position = Vector2(441, 319)
 port = 6001
 
-[node name="Station3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 198, 413 )
+[node name="Station3" parent="." unique_id=1059755123 instance=ExtResource("1")]
+position = Vector2(198, 413)
 port = 6002
 
-[node name="Station4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 167, 674 )
+[node name="Station4" parent="." unique_id=1524662310 instance=ExtResource("1")]
+position = Vector2(167, 674)
 port = 6003
 
-[node name="Station5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 347, 784 )
+[node name="Station5" parent="." unique_id=732568258 instance=ExtResource("1")]
+position = Vector2(347, 784)
 port = 6004
 
-[node name="Station6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 614, 794 )
+[node name="Station6" parent="." unique_id=833301132 instance=ExtResource("1")]
+position = Vector2(614, 794)
 port = 6005
 
-[node name="Station7" parent="." instance=ExtResource( 1 )]
-position = Vector2( 820, 671 )
+[node name="Station7" parent="." unique_id=1073989273 instance=ExtResource("1")]
+position = Vector2(820, 671)
 port = 6006
 
-[node name="RunPath" type="Path2D" parent="."]
-position = Vector2( 0, 266 )
-curve = SubResource( 1 )
+[node name="RunPath" type="Path2D" parent="." unique_id=147087395]
+position = Vector2(0, 266)
+curve = SubResource("1")
 
-[node name="Baton" parent="RunPath" instance=ExtResource( 3 )]
-position = Vector2( 726.712, 163.978 )
-rotation = -2.42014
-scale = Vector2( 0.980344, 1.05591 )
-offset = 191.441
+[node name="Baton" parent="RunPath" unique_id=1360594684 instance=ExtResource("3")]
+position = Vector2(825, 316)
+rotation = -1.7380502
+scale = Vector2(0.980344, 1.05591)
 mac = "00:00:00:00:00:00"
 
-[node name="Baton2" parent="RunPath" instance=ExtResource( 3 )]
-position = Vector2( 713.185, 152.08 )
-rotation = -2.42012
-scale = Vector2( 0.980344, 1.05591 )
-offset = 209.488
+[node name="Baton2" parent="RunPath" unique_id=1890428180 instance=ExtResource("3")]
+position = Vector2(825, 316)
+rotation = -1.7380502
+scale = Vector2(0.980344, 1.05591)
 mac = "00:00:00:00:00:01"
 
-[node name="Baton3" parent="RunPath" instance=ExtResource( 3 )]
-position = Vector2( 705.303, 145.145 )
-rotation = -2.67009
-scale = Vector2( 0.980344, 1.05591 )
-offset = 219.996
+[node name="Baton3" parent="RunPath" unique_id=426963937 instance=ExtResource("3")]
+position = Vector2(825, 316)
+rotation = -1.7380502
+scale = Vector2(0.980344, 1.05591)
 mac = "00:00:00:00:00:02"
 
-[node name="Baton4" parent="RunPath" instance=ExtResource( 3 )]
-position = Vector2( 699.923, 142.607 )
-rotation = -2.83257
-scale = Vector2( 0.980344, 1.05591 )
-offset = 225.947
+[node name="Baton4" parent="RunPath" unique_id=438045811 instance=ExtResource("3")]
+position = Vector2(825, 316)
+rotation = -1.7380502
+scale = Vector2(0.980344, 1.05591)
 mac = "00:00:00:00:00:03"
 
-[node name="Baton5" parent="RunPath" instance=ExtResource( 3 )]
-position = Vector2( 732.185, 168.792 )
-rotation = -2.42014
-scale = Vector2( 0.980344, 1.05591 )
-offset = 184.16
+[node name="Baton5" parent="RunPath" unique_id=343425863 instance=ExtResource("3")]
+position = Vector2(825, 316)
+rotation = -1.7380502
+scale = Vector2(0.980344, 1.05591)
 mac = "00:00:00:00:00:04"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=773846529]
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=663837088]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 8.0
-margin_bottom = 8.0
-mouse_filter = 2
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 8.0
+offset_bottom = 8.0
 size_flags_horizontal = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
-margin_right = 1024.0
-margin_bottom = 600.0
 mouse_filter = 2
-custom_constants/separation = 16
 
-[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-margin_right = 1024.0
-margin_bottom = 14.0
-custom_colors/font_color = Color( 0.117647, 0, 0.407843, 1 )
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=1401870878]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 16
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1817109100]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.117647, 0, 0.407843, 1)
 text = "Baton overview"
 
-[node name="BatonOverview" type="GridContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-margin_top = 30.0
-margin_right = 1024.0
-margin_bottom = 44.0
-mouse_filter = 2
+[node name="BatonOverview" type="GridContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1978627823]
+layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 columns = 3
-script = ExtResource( 4 )
+script = ExtResource("4")
 
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/BatonOverview"]
-margin_right = 38.0
-margin_bottom = 14.0
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/BatonOverview" unique_id=474063829]
+layout_mode = 2
 text = "name"
 uppercase = true
 
-[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/BatonOverview"]
-margin_left = 42.0
-margin_right = 71.0
-margin_bottom = 14.0
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/BatonOverview" unique_id=1784411951]
+layout_mode = 2
 text = "mac"
 uppercase = true
 
-[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/BatonOverview"]
-margin_left = 75.0
-margin_right = 99.0
-margin_bottom = 14.0
+[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/BatonOverview" unique_id=1904503229]
+layout_mode = 2
 text = "lap"
 uppercase = true
 
-[node name="VBoxBatons" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-margin_top = 60.0
-margin_right = 1024.0
-margin_bottom = 600.0
-mouse_filter = 2
+[node name="VBoxBatons" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=1954468629]
+layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource( 8 )
+mouse_filter = 2
+script = ExtResource("8")
 
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons"]
-margin_right = 1024.0
-margin_bottom = 14.0
-custom_colors/font_color = Color( 0.117647, 0, 0.407843, 1 )
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons" unique_id=501981723]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.117647, 0, 0.407843, 1)
 text = "Baton detection logs"
 uppercase = true
 
-[node name="HBoxStationFilter" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons"]
-margin_top = 18.0
-margin_right = 1024.0
-margin_bottom = 32.0
+[node name="HBoxStationFilter" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons" unique_id=50846767]
+layout_mode = 2
 mouse_filter = 2
-script = ExtResource( 7 )
+script = ExtResource("7")
 
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxStationFilter"]
-margin_right = 78.0
-margin_bottom = 14.0
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxStationFilter" unique_id=698041318]
+layout_mode = 2
 text = "Station filter"
 
-[node name="HBoxBatonList" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons"]
-margin_top = 36.0
-margin_right = 1024.0
-margin_bottom = 540.0
-mouse_filter = 2
+[node name="HBoxBatonList" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons" unique_id=2028922871]
+layout_mode = 2
 size_flags_vertical = 3
-
-[node name="VBoxBaton" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList"]
-margin_right = 1024.0
-margin_bottom = 504.0
 mouse_filter = 2
+
+[node name="VBoxBaton" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList" unique_id=227996278]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = SubResource( 2 )
-script = ExtResource( 6 )
+mouse_filter = 2
+theme = SubResource("2")
+script = ExtResource("6")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton"]
-margin_right = 1024.0
-margin_bottom = 40.0
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton" unique_id=1244347826]
+layout_mode = 2
 mouse_filter = 2
 
-[node name="BatonName" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/HBoxContainer"]
-margin_top = 13.0
-margin_right = 37.0
-margin_bottom = 27.0
+[node name="BatonName" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/HBoxContainer" unique_id=1210106001]
+layout_mode = 2
 text = "Baton"
 
-[node name="Show" type="CheckButton" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/HBoxContainer"]
-margin_left = 41.0
-margin_right = 154.0
-margin_bottom = 40.0
-mouse_filter = 1
+[node name="Show" type="CheckButton" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/HBoxContainer" unique_id=1752406036]
+layout_mode = 2
 size_flags_horizontal = 0
-text = "Show"
-align = 2
-
-[node name="ScrollBatonLogs" type="ScrollContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton"]
-margin_top = 44.0
-margin_right = 1024.0
-margin_bottom = 504.0
 mouse_filter = 1
+text = "Show"
+
+[node name="ScrollBatonLogs" type="ScrollContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton" unique_id=1952890270]
+layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource( 9 )
+theme = ExtResource("9")
 follow_focus = true
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs"]
-margin_right = 223.0
-margin_bottom = 48.0
-custom_constants/margin_right = 8
-custom_constants/margin_top = 8
-custom_constants/margin_left = 8
-custom_constants/margin_bottom = 8
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs" unique_id=297270664]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer"]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 215.0
-margin_bottom = 40.0
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer" unique_id=1869112637]
+layout_mode = 2
 mouse_filter = 2
 columns = 4
-script = ExtResource( 5 )
+script = ExtResource("5")
 
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer/GridContainer"]
-margin_right = 38.0
-margin_bottom = 14.0
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer/GridContainer" unique_id=962952500]
+layout_mode = 2
 text = "name"
 uppercase = true
 
-[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer/GridContainer"]
-margin_left = 42.0
-margin_right = 98.0
-margin_bottom = 14.0
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer/GridContainer" unique_id=145024915]
+layout_mode = 2
 text = "station"
 uppercase = true
 
-[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer/GridContainer"]
-margin_left = 102.0
-margin_right = 129.0
-margin_bottom = 14.0
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer/GridContainer" unique_id=1543615678]
+layout_mode = 2
 text = "rssi"
 uppercase = true
 
-[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer/GridContainer"]
-margin_left = 133.0
-margin_right = 207.0
-margin_bottom = 14.0
+[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer/GridContainer" unique_id=995296223]
+layout_mode = 2
 text = "timestamp"
 uppercase = true
 
-[node name="NameValues" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer/GridContainer"]
-margin_top = 18.0
-margin_bottom = 32.0
+[node name="NameValues" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer/GridContainer" unique_id=1673976139]
+layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="StationValues" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer/GridContainer"]
-margin_left = 42.0
-margin_top = 18.0
-margin_right = 42.0
-margin_bottom = 32.0
+[node name="StationValues" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer/GridContainer" unique_id=136695083]
+layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="RssiValues" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer/GridContainer"]
-margin_left = 102.0
-margin_top = 18.0
-margin_right = 102.0
-margin_bottom = 32.0
+[node name="RssiValues" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer/GridContainer" unique_id=1544327102]
+layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="TimestampValues" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer/GridContainer"]
-margin_left = 133.0
-margin_top = 18.0
-margin_right = 133.0
-margin_bottom = 32.0
+[node name="TimestampValues" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/ScrollBatonLogs/MarginContainer/GridContainer" unique_id=856205547]
+layout_mode = 2
 size_flags_horizontal = 0
 
 [connection signal="toggled" from="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton/HBoxContainer/Show" to="CanvasLayer/MarginContainer/VBoxContainer/VBoxBatons/HBoxBatonList/VBoxBaton" method="_on_Show_toggled"]

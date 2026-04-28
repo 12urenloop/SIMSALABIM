@@ -1,6 +1,6 @@
 extends Node2D
 
-export(int) var port
+@export var port: int
 
 var detections = []
 var last_id: int = 0
@@ -23,7 +23,7 @@ func add_detection(baton: PathFollow2D):
 	if not enabled:
 		return
 		
-	var timestamp := float(OS.get_system_time_msecs()) / 1000
+	var timestamp := float(Time.get_unix_time_from_system())
 	var distance := self.global_position.distance_to(baton.global_position)
 	var max_dist: float = $Area2D/CollisionShape2D.get_shape().radius
 	var dist_perc = distance/max_dist
@@ -43,8 +43,8 @@ func add_detection(baton: PathFollow2D):
 	# $DetectionGraph.add_point(timestamp, new_rssi*-1)
 	baton.emit_signal("detection_registered", self, new_rssi, timestamp)
 
-func _process(delta):
-	update()
+func _process(_delta):
+	queue_redraw()
 	
 	# TODO
 	# Check if a baton is in the area of the station. Add a detection with a realistic rssi
@@ -55,7 +55,7 @@ func _process(delta):
 	$UI/DetectionCount.text = str(detections.size())
 
 func response(index):
-	return JSON.print({
+	return JSON.stringify({
 		"station_id": self.name,
 		"detections": detections.slice(index, detections.size())
 	})

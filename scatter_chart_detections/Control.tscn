@@ -1,22 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene format=3 uid="uid://b7yr8imxqoh7y"]
 
-[ext_resource path="res://scatter_chart_detections/Control.gd" type="Script" id=1]
-[ext_resource path="res://addons/easy_charts/control_charts/chart.tscn" type="PackedScene" id=2]
+[ext_resource type="Script" uid="uid://bfn22erssngrj" path="res://scatter_chart_detections/Control.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://dlwq4kmdb3bhs" path="res://addons/easy_charts/control_charts/chart.tscn" id="2_p58bh"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=1742812360]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 1 )
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1830936224]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Chart" parent="VBoxContainer" instance=ExtResource( 2 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1024.0
-margin_bottom = 600.0
+[node name="Chart" parent="VBoxContainer" unique_id=283612147 instance=ExtResource("2_p58bh")]
+layout_mode = 2

@@ -1,4 +1,4 @@
-tool
+@tool
 extends Node2D
 
 # 1024, 600
@@ -29,5 +29,5 @@ func _draw():
 	draw_circle(Vector2(0,0), 60.0, Color(0.0,0.0,0.0,0.1))
 
 
-func _process(delta):
-	update()
+func _process(_delta):
+	queue_redraw()

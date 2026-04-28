@@ -7,7 +7,7 @@ signal detection_registered(station, rssi, timestamp)
 # bewegingslijnen
 # voetstappen
 
-export(String) var mac  = "00:00:00:00:00:01"
+@export var mac: String  = "00:00:00:00:00:01"
 
 var rng = RandomNumberGenerator.new()
 
@@ -25,16 +25,16 @@ var home_base: float = 0.0
 var delta_since_last_emission: float = 0.0
 
 func get_track_distance():
-	return get_parent().get_curve().get_baked_length()
-func get_progress():
-	return offset/get_track_distance()
+	var parent: Path2D = get_parent()
+	return parent.get_curve().get_baked_length()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$UI/Name.text = name
 	
 	rng.randomize()
-	offset = 0
+	set_progress(0)
+
 	stop_chance = rng.randf_range(0.0, 1.0)
 	home_base = rng.randf_range(0.0, 1.0) * get_track_distance()
 	speed = rng.randf_range(2.0, 3.0) # .4, 1.0
@@ -58,22 +58,23 @@ func _process(delta):
 				station.add_detection(self)
 
 	
-	update()
-	var previous_offset = offset
+	queue_redraw()
+	var previous_offset = get_progress()
 	
 	temp_slow = lerp(temp_slow, 1.0, .1)
 	
-	offset += ((speed + speed_offset) * temp_slow)
-	if offset < previous_offset:
+	var new_offset = previous_offset + ((speed + speed_offset) * temp_slow)
+	if new_offset < previous_offset:
 		laps += 1
 		emit_signal("laps_changed", laps)
 		
 		speed_offset += rng.randf_range(-.05, .05)
 		speed_offset = clamp(speed_offset, -.2, .2)
 	
-	if previous_offset < home_base and offset > home_base:
+	if previous_offset < home_base and new_offset > home_base:
 		temp_slow = .3
 	
+	set_progress(new_offset)
 		
-	$UI/Progress.text = str(round(get_progress()*100)/100)
-	$UI/Speed.text = str(temp_slow * speed)
+	$UI/Progress.text = str(round(get_progress_ratio() * 100) / 100)
+	$UI/Speed.text = str(roundf(temp_slow * speed * 100) / 100)

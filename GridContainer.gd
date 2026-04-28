@@ -7,7 +7,7 @@ var enabled_stations = []
 func _ready() -> void:
 	for baton in get_tree().get_nodes_in_group("baton_root"):
 		if baton.name == selected_baton:
-			baton.connect("detection_registered", self, "_on_detection_registered")
+			baton.connect("detection_registered", Callable(self, "_on_detection_registered"))
 
 func _on_detection_registered(station, rssi, timestamp):
 	if enabled_stations.has(station.name):
