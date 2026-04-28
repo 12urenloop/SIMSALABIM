@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmi2wq470yywq"
-path="res://.godot/imported/linechart.svg-922834f0462a2c88be644081c47c63ad.ctex"
+uid="uid://cn1cr6tb6iw6p"
+path="res://.godot/imported/icon.svg-655bc7c28f15e7cab48b85d562ef0068.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/easy_charts/utilities/icons/linechart.svg"
-dest_files=["res://.godot/imported/linechart.svg-922834f0462a2c88be644081c47c63ad.ctex"]
+source_file="res://addons/easy_charts/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-655bc7c28f15e7cab48b85d562ef0068.ctex"]
 
 [params]
 
